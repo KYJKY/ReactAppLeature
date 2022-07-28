@@ -19,7 +19,14 @@
     const root = document.getElementById('root');
     let counter = 0;
 
-    const onClickEvent = () => { counter = counter + 1 };
+    const onClickEvent = () => {
+        counter = counter + 1;
+        render();
+    };
+
+    const render = () => {
+        ReactDOM.render(<Container />, root);
+    };
 
     const Container = () => (
         <div>
@@ -28,7 +35,7 @@
         </div>
     );
 
-    ReactDOM.render(<Container />, root);
+    render();
 
 </script>
 
