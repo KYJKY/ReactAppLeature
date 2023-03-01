@@ -16,6 +16,15 @@
 </body>
 
 <script type="text/babel">
+    function DefaultPage() {
+        console.log('gd');
+        return (
+            <div>
+                <h1>골라라</h1>
+            </div>
+        );
+    }
+
     function MinutesToHours() {
         const [amount, setAmount] = React.useState(0);
         const [inverted, setInverted] = React.useState(false);
@@ -122,16 +131,20 @@
             setIndex(event.target.value);
         };
 
+        console.log(index);
+
         return (
             <div>
                 <h1>Super Converter</h1>
                 <select onChange={onSelect}>
-                    <option value="0">시간/분 Converter</option>
-                    <option value="1">Km/Miles Converter</option>
+                    <option value="0">선택하세요</option>
+                    <option value="1">시간/분 Converter</option>
+                    <option value="2">Km/Miles Converter</option>
                 </select>
                 <hr />
-                {index === "0" ? <MinutesToHours /> : null}
-                {index === "1" ? <KmToMiles /> : null}
+                {index === "0" ? <DefaultPage /> : null}
+                {index === "1" ? <MinutesToHours /> : null}
+                {index === "2" ? <KmToMiles /> : null}
             </div>
         );
     }
